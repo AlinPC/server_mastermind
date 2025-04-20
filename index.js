@@ -24,9 +24,9 @@ app.use('/', router );
 const startServer = async () => {
     try {
       await Connection();
-      app.listen(port, () => {
-        console.log("Servidor UP en puerto", port);
-      });
+      // app.listen(port, () => {
+      //   console.log("Servidor UP en puerto", port);
+      // });
     } catch (err) {
       console.error("❌ Error al conectar a la base de datos:", err.message);
       process.exit(1);
