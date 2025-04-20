@@ -1,10 +1,11 @@
 import express from 'express'
 import cors from "cors"
-import Connection from './src/config/db/db.js';
-import Confidence from './src/config/dotenv/dotenv.js';
-import seed_users from './src/seed/users_seed.js';
-import clear_seeds from './src/seed/clear_seed.js';
-import router from './src/routes/users/router.js';
+import Connection from './config/db/db.js';
+import Confidence from './config/dotenv/dotenv.js';
+import seed_users from './seed/users_seed.js';
+import clear_seeds from './seed/clear_seed.js';
+import router from './routes/users/router.js';
+import serverless from "serverless-http";
 
 const app = express();
 const port = Confidence.Port_DB || 3000;
@@ -38,4 +39,4 @@ const startServer = async () => {
   // seed_users(50)
   // clear_seeds()
 
-  export default app;
+ export const handler = serverless(app);
